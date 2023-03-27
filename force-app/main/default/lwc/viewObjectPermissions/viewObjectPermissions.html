@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <lightning-card class="slds-var-p-around_medium">
+            <div class="slds-text-heading_medium slds-align_absolute-center">Field's Permissions View
+            </div>
+
+            <lightning-layout multiple-rows class="slds-var-m-top_medium">
+                <lightning-layout-item size="3">
+                    <lightning-combobox name="Users" label="Users" value="" placeholder="Select User" options={users}
+                        onchange={handleUserChange} required>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <lightning-combobox name="objectName" label="Objects" value="" placeholder="Select Object"
+                        options={objects} onchange={handleObjectChange} required></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <lightning-combobox name="Fields" label="Fields" value="" placeholder="Select Field"
+                        options={fields} onchange={handleFieldChange}></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <div class="slds-align_absolute-center slds-var-m-top_large">
+                        <lightning-button label="Retrieve Fields Permission" title="Retrieve Fields Permission"
+                            onclick={handleClick}>
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+        <lightning-card title="Field Permission List" class="slds-var-p-around_medium">
+            <br />
+            <div style="width: auto;">
+                <lightning-datatable data={data} columns={columns} key-field="Id">
+                </lightning-datatable>
+            </div>
+        </lightning-card>
+    </div>
+</template>

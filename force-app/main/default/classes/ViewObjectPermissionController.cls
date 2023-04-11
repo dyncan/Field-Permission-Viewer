@@ -57,8 +57,8 @@ public class ViewObjectPermissionController {
       SELECT DurableId
       FROM UserFieldAccess
       WHERE
-        FieldDefinition.EntityDefinition.QualifiedApiName = :objectName // 所选对象
-        AND User.Id = :userId // 所选用户
+        FieldDefinition.EntityDefinition.QualifiedApiName = :objectName
+        AND User.Id = :userId
     ]) {
       durableIds.add(ufa.DurableId);
     }

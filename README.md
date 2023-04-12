@@ -1,19 +1,42 @@
-# Salesforce DX Project: Next Steps
-
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
-
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
 # Field-Permission-Viewer
+
+It is easy to see the set of field permissions for a given user on a given object.
+
+## Installing the app using a Scratch Org
+
+1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
+
+    - Enable Dev Hub in your Trailhead Playground
+    - Install Salesforce CLI
+    - Install Visual Studio Code
+    - Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
+
+1. If you haven't already done so, authorize your hub org and provide it with an alias (**mydevhuborg** in the command below):
+
+    ```
+    sfdx auth:web:login -d -a mydevhuborg
+    ```
+
+1. Clone the Field-Permission-Viewer repository:
+
+    ```
+    git clone https://github.com/dyncan/Field-Permission-Viewer.git
+    cd Field-Permission-Viewer
+    ```
+
+1. Create a scratch org and provide it with an alias (**lwc-field-viewer** in the command below):
+
+    ```
+    sfdx force:org:create -s -f config/project-scratch-def.json -a lwc-field-viewer
+    ```
+
+1. Push the app to your scratch org:
+
+    ```
+    sfdx force:source:push
+    ```
+2. Open the scratch org:
+
+    ```
+    sfdx force:org:open
+    ```
